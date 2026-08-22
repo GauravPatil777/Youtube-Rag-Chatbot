@@ -1,17 +1,32 @@
+import os
+import requests
+from dotenv import load_dotenv
 
-from youtube_transcript_api import YouTubeTranscriptApi
+load_dotenv()
 
 def get_transcript(video_id):
-    # video transcript fetching
-    api=YouTubeTranscriptApi()
-    available_transcripts = api.list(video_id)
+    api_key = os.getenv("SUPADATA_API_KEY")
 
-    selected_transcript = None
+    url = "https://api.supadata.ai/v1/youtube/transcript"
 
-    for transcript in available_transcripts:
-        if selected_transcript is None:
-            selected_transcript = transcript
+    headers = {
+        "x-api-key": api_key
+    }
 
-    transcript=api.fetch(video_id,languages=[selected_transcript.language_code])
-    full_transcript=" ".join(chunk.text for chunk in transcript)
-    return full_transcript
+    params = {
+        "videoId": video_id,
+        "text": "true"
+    }
+
+    response = requests.get(
+        url,
+        headers=headers,
+        params=params,
+        timeout=30
+    )
+
+    response.raise_for_status()
+
+    data = response.json()
+
+    return data["content"]
