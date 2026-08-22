@@ -1,12 +1,11 @@
 fastapi
 uvicorn
+pydantic
 langchain
 langchain-core
-langchain-community
 langchain-google-genai
+langchain-chroma
 langchain-text-splitters
 python-dotenv
-tiktoken
 chromadb
-sentence-transformers
 youtube-transcript-api
