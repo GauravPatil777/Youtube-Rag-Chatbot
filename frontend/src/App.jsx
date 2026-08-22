@@ -26,7 +26,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/process-video",
+        "https://youtube-rag-chatbot-backend.onrender.com/process-video",
         {
           method: "POST",
           headers: {
@@ -80,7 +80,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/chat",
+        "https://youtube-rag-chatbot-backend.onrender.com/chat",
         {
           method: "POST",
           headers: {
