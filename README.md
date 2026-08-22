@@ -6,7 +6,7 @@ Instead of sending the entire video content to an LLM, the application retrieves
 
 ## 🚀 Live Demo
 
-🔗 Coming soon
+🔗 https://youtube-rag-chatbot.vercel.app
 
 ## 📌 Features
 
